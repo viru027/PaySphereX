@@ -1,0 +1,87 @@
+# PaySphereX — Docker Compose
+# Usage: docker-compose up --build
+version: "3.9"
+
+services:
+  # ── PostgreSQL ────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: paysphere_db
+    environment:
+      POSTGRES_DB:       paysphere_db
+      POSTGRES_USER:     postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+      - ./database/seeds.sql:/docker-entrypoint-initdb.d/02_seeds.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Node.js Backend ───────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: paysphere_backend
+    environment:
+      NODE_ENV:    production
+      PORT:        5000
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/paysphere_db
+      JWT_SECRET:  change_me_in_production_min_64_chars_secret_key_here
+      JWT_REFRESH_SECRET: change_me_refresh_secret_key_here
+      JWT_EXPIRES_IN: 15m
+      JWT_REFRESH_EXPIRES_IN: 7d
+      ALLOWED_ORIGINS: http://localhost:3000
+      ML_API_URL: http://ml_api:8000
+    ports:
+      - "5000:5000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./backend/uploads:/app/uploads
+      - ./backend/logs:/app/logs
+    restart: unless-stopped
+
+  # ── Python ML API ────────────────────────────────────
+  ml_api:
+    build:
+      context: ./data_science
+      dockerfile: Dockerfile.ml
+    container_name: paysphere_ml
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/paysphere_db
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./data_science:/app
+    restart: unless-stopped
+    command: >
+      sh -c "python models/ml_models.py &&
+             uvicorn ml_api:app --host 0.0.0.0 --port 8000"
+
+  # ── React Frontend ───────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_URL: http://localhost:5000/api/v1
+    container_name: paysphere_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

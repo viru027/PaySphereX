@@ -1,0 +1,164 @@
+employee_id,leave_type,start_date,end_date,total_days,status,reason
+cbd064df-765b-43b1-a6de-47fffd90277e,SL,2025-11-05,2025-11-09,5,Approved,Travel
+cbd064df-765b-43b1-a6de-47fffd90277e,CL,2025-11-12,2025-11-15,4,Pending,Medical appointment
+cbd064df-765b-43b1-a6de-47fffd90277e,SL,2026-03-12,2026-03-15,4,Rejected,Family function
+cbd064df-765b-43b1-a6de-47fffd90277e,UL,2026-03-16,2026-03-20,5,Pending,Medical appointment
+cbd064df-765b-43b1-a6de-47fffd90277e,UL,2026-01-27,2026-01-27,1,Pending,Not feeling well
+cbd064df-765b-43b1-a6de-47fffd90277e,PL,2026-01-25,2026-01-26,2,Approved,Travel
+dc25aa84-d58e-4e57-9a98-885120ccf60e,PL,2026-02-07,2026-02-07,1,Pending,Medical appointment
+dc25aa84-d58e-4e57-9a98-885120ccf60e,SL,2025-12-03,2025-12-07,5,Pending,Family function
+397f1799-4620-4a1f-a3e1-1fa6e223e42e,SL,2026-01-15,2026-01-19,5,Rejected,Not feeling well
+397f1799-4620-4a1f-a3e1-1fa6e223e42e,CL,2025-11-04,2025-11-08,5,Pending,Personal work
+397f1799-4620-4a1f-a3e1-1fa6e223e42e,PL,2026-02-15,2026-02-19,5,Approved,Travel
+397f1799-4620-4a1f-a3e1-1fa6e223e42e,PL,2025-12-18,2025-12-18,1,Pending,Not feeling well
+71b688b3-185a-46a9-a56b-4dad8ff836f6,CL,2026-01-20,2026-01-20,1,Rejected,Travel
+71b688b3-185a-46a9-a56b-4dad8ff836f6,UL,2026-03-16,2026-03-18,3,Approved,Travel
+0b70bf5d-3262-4fff-afec-7f60d23122ae,SL,2025-12-29,2026-01-02,5,Rejected,Travel
+0b70bf5d-3262-4fff-afec-7f60d23122ae,PL,2026-01-15,2026-01-15,1,Pending,Family function
+0b70bf5d-3262-4fff-afec-7f60d23122ae,UL,2026-02-14,2026-02-18,5,Pending,Not feeling well
+0b70bf5d-3262-4fff-afec-7f60d23122ae,PL,2025-11-06,2025-11-07,2,Approved,Personal work
+0b70bf5d-3262-4fff-afec-7f60d23122ae,UL,2026-03-23,2026-03-25,3,Pending,Not feeling well
+0b70bf5d-3262-4fff-afec-7f60d23122ae,CL,2026-01-15,2026-01-18,4,Rejected,Travel
+f8ce00f7-1af4-4f2d-9995-88c404ac5b86,SL,2026-01-13,2026-01-16,4,Pending,Medical appointment
+f8ce00f7-1af4-4f2d-9995-88c404ac5b86,PL,2026-03-28,2026-03-30,3,Rejected,Medical appointment
+f8ce00f7-1af4-4f2d-9995-88c404ac5b86,CL,2026-03-26,2026-03-30,5,Rejected,Not feeling well
+f8ce00f7-1af4-4f2d-9995-88c404ac5b86,CL,2025-11-29,2025-11-29,1,Approved,Not feeling well
+f8ce00f7-1af4-4f2d-9995-88c404ac5b86,SL,2026-03-10,2026-03-14,5,Rejected,Not feeling well
+f8ce00f7-1af4-4f2d-9995-88c404ac5b86,PL,2026-03-13,2026-03-15,3,Pending,Personal work
+9edfa270-536e-4023-9334-20448974da28,UL,2026-01-08,2026-01-08,1,Pending,Medical appointment
+9edfa270-536e-4023-9334-20448974da28,UL,2026-03-21,2026-03-25,5,Rejected,Travel
+9edfa270-536e-4023-9334-20448974da28,CL,2025-10-10,2025-10-11,2,Approved,Travel
+9edfa270-536e-4023-9334-20448974da28,PL,2026-02-24,2026-02-24,1,Approved,Not feeling well
+2354a2a8-adaa-4934-8562-a9bc6efd78f5,CL,2025-10-22,2025-10-26,5,Approved,Not feeling well
+277c144a-c05b-472c-a972-6354d3a4c033,SL,2026-03-26,2026-03-26,1,Approved,Not feeling well
+277c144a-c05b-472c-a972-6354d3a4c033,PL,2026-03-01,2026-03-05,5,Pending,Travel
+277c144a-c05b-472c-a972-6354d3a4c033,CL,2025-10-25,2025-10-28,4,Rejected,Family function
+277c144a-c05b-472c-a972-6354d3a4c033,UL,2025-11-30,2025-11-30,1,Rejected,Personal work
+2728d707-1d77-415f-b799-d069411a1843,CL,2026-02-13,2026-02-17,5,Approved,Not feeling well
+53a78173-01ee-4e81-be5c-46980c360673,PL,2025-12-01,2025-12-01,1,Rejected,Personal work
+53a78173-01ee-4e81-be5c-46980c360673,SL,2025-11-08,2025-11-10,3,Pending,Not feeling well
+53a78173-01ee-4e81-be5c-46980c360673,CL,2026-02-26,2026-03-02,5,Rejected,Medical appointment
+53a78173-01ee-4e81-be5c-46980c360673,PL,2026-01-23,2026-01-25,3,Rejected,Travel
+53a78173-01ee-4e81-be5c-46980c360673,PL,2026-02-24,2026-02-25,2,Pending,Not feeling well
+c948cbd6-930f-4727-940c-b12a5aef6fee,CL,2026-01-29,2026-02-01,4,Rejected,Family function
+c948cbd6-930f-4727-940c-b12a5aef6fee,UL,2025-12-11,2025-12-11,1,Rejected,Medical appointment
+c948cbd6-930f-4727-940c-b12a5aef6fee,SL,2025-12-23,2025-12-24,2,Approved,Personal work
+1b05b5b2-3323-4dcb-92cf-6ea40b84eb54,SL,2026-03-09,2026-03-10,2,Rejected,Family function
+1b05b5b2-3323-4dcb-92cf-6ea40b84eb54,PL,2025-10-11,2025-10-12,2,Pending,Travel
+1b05b5b2-3323-4dcb-92cf-6ea40b84eb54,PL,2026-03-23,2026-03-24,2,Approved,Medical appointment
+1b05b5b2-3323-4dcb-92cf-6ea40b84eb54,CL,2026-03-30,2026-04-01,3,Approved,Not feeling well
+77861da6-254b-43ec-a49e-ea53693fb1c2,UL,2026-02-12,2026-02-15,4,Rejected,Family function
+77861da6-254b-43ec-a49e-ea53693fb1c2,SL,2025-12-09,2025-12-12,4,Pending,Travel
+77861da6-254b-43ec-a49e-ea53693fb1c2,PL,2025-11-13,2025-11-17,5,Rejected,Not feeling well
+a665462b-3c92-4098-8a79-33e7fe414a51,CL,2025-10-30,2025-10-30,1,Approved,Medical appointment
+a6f9d9e9-8fd4-4bad-8740-1b066e451957,CL,2026-04-03,2026-04-05,3,Pending,Travel
+04c8a190-0ce3-455a-b9fd-3298dec57bd5,CL,2025-11-11,2025-11-12,2,Approved,Family function
+04c8a190-0ce3-455a-b9fd-3298dec57bd5,UL,2026-02-09,2026-02-10,2,Rejected,Family function
+04c8a190-0ce3-455a-b9fd-3298dec57bd5,UL,2026-03-17,2026-03-19,3,Rejected,Personal work
+04c8a190-0ce3-455a-b9fd-3298dec57bd5,CL,2026-01-19,2026-01-19,1,Pending,Not feeling well
+8b11014b-91a9-4371-ae43-92f38ae5f767,CL,2025-12-10,2025-12-11,2,Rejected,Personal work
+8b11014b-91a9-4371-ae43-92f38ae5f767,CL,2025-12-05,2025-12-06,2,Approved,Personal work
+8b11014b-91a9-4371-ae43-92f38ae5f767,PL,2026-02-04,2026-02-07,4,Pending,Personal work
+6c5fb0aa-f69c-4ee2-91cb-529c41adc77a,CL,2025-11-12,2025-11-15,4,Rejected,Not feeling well
+6c5fb0aa-f69c-4ee2-91cb-529c41adc77a,UL,2026-02-09,2026-02-09,1,Rejected,Travel
+6c5fb0aa-f69c-4ee2-91cb-529c41adc77a,UL,2026-03-29,2026-03-29,1,Pending,Travel
+6c5fb0aa-f69c-4ee2-91cb-529c41adc77a,CL,2025-12-21,2025-12-22,2,Rejected,Personal work
+6c5fb0aa-f69c-4ee2-91cb-529c41adc77a,PL,2025-10-19,2025-10-19,1,Rejected,Family function
+6c5fb0aa-f69c-4ee2-91cb-529c41adc77a,PL,2025-12-04,2025-12-05,2,Approved,Family function
+bafc4c2a-b61d-46f0-9292-54efe4b89a5c,CL,2026-02-04,2026-02-07,4,Rejected,Personal work
+bafc4c2a-b61d-46f0-9292-54efe4b89a5c,UL,2025-11-12,2025-11-15,4,Approved,Personal work
+653b819c-5b3c-4f12-aa14-2bf623e99fa2,PL,2026-01-02,2026-01-02,1,Pending,Travel
+653b819c-5b3c-4f12-aa14-2bf623e99fa2,PL,2025-11-17,2025-11-18,2,Rejected,Family function
+653b819c-5b3c-4f12-aa14-2bf623e99fa2,SL,2025-11-15,2025-11-19,5,Pending,Family function
+ce755464-5cef-423b-b889-eb23a2106ebe,UL,2026-02-20,2026-02-24,5,Pending,Travel
+ce755464-5cef-423b-b889-eb23a2106ebe,SL,2026-01-07,2026-01-09,3,Rejected,Travel
+ce755464-5cef-423b-b889-eb23a2106ebe,UL,2025-10-15,2025-10-19,5,Pending,Travel
+ce755464-5cef-423b-b889-eb23a2106ebe,PL,2026-03-14,2026-03-18,5,Approved,Family function
+0f328eb3-3b06-411a-94fc-25a05916a39d,UL,2025-10-22,2025-10-25,4,Rejected,Not feeling well
+0f328eb3-3b06-411a-94fc-25a05916a39d,SL,2026-03-26,2026-03-28,3,Rejected,Family function
+0f328eb3-3b06-411a-94fc-25a05916a39d,SL,2025-11-18,2025-11-19,2,Approved,Travel
+edf1d6ba-b7b0-48e8-8ba9-02a624030c8f,CL,2025-12-19,2025-12-19,1,Rejected,Personal work
+c2356b8b-2103-4f0f-9e5b-b4d161555601,SL,2026-04-04,2026-04-06,3,Rejected,Not feeling well
+c2356b8b-2103-4f0f-9e5b-b4d161555601,UL,2025-10-12,2025-10-14,3,Approved,Family function
+c2356b8b-2103-4f0f-9e5b-b4d161555601,UL,2025-12-31,2026-01-04,5,Rejected,Travel
+c2356b8b-2103-4f0f-9e5b-b4d161555601,PL,2026-02-08,2026-02-12,5,Rejected,Travel
+c2356b8b-2103-4f0f-9e5b-b4d161555601,SL,2025-10-11,2025-10-11,1,Rejected,Travel
+c7b3609a-4066-45d5-bc3b-8a5cf4359425,CL,2025-10-10,2025-10-11,2,Rejected,Personal work
+c7b3609a-4066-45d5-bc3b-8a5cf4359425,CL,2025-11-30,2025-12-01,2,Rejected,Family function
+d213c66e-0011-4bd6-9a68-d291a76f24f0,SL,2025-12-23,2025-12-25,3,Rejected,Personal work
+d213c66e-0011-4bd6-9a68-d291a76f24f0,CL,2026-02-16,2026-02-16,1,Approved,Family function
+583de298-1cca-462a-bb0f-016fd44f539c,CL,2026-02-11,2026-02-12,2,Approved,Family function
+c276e073-32c8-47f4-9748-042be71559ad,PL,2026-03-06,2026-03-09,4,Rejected,Travel
+c276e073-32c8-47f4-9748-042be71559ad,PL,2026-04-03,2026-04-07,5,Pending,Travel
+c276e073-32c8-47f4-9748-042be71559ad,PL,2025-12-31,2026-01-01,2,Pending,Medical appointment
+c276e073-32c8-47f4-9748-042be71559ad,CL,2025-11-06,2025-11-09,4,Rejected,Travel
+65da7385-925b-473d-9d5c-4aae3c7f667d,PL,2025-11-29,2025-12-01,3,Approved,Family function
+8e28949a-0771-4ee6-b5ae-428861b41075,CL,2025-12-05,2025-12-08,4,Pending,Medical appointment
+8e28949a-0771-4ee6-b5ae-428861b41075,UL,2025-10-29,2025-10-31,3,Approved,Travel
+8e28949a-0771-4ee6-b5ae-428861b41075,CL,2026-03-27,2026-03-30,4,Pending,Family function
+8e28949a-0771-4ee6-b5ae-428861b41075,CL,2025-11-17,2025-11-17,1,Approved,Personal work
+8e28949a-0771-4ee6-b5ae-428861b41075,PL,2025-12-10,2025-12-13,4,Approved,Medical appointment
+8e28949a-0771-4ee6-b5ae-428861b41075,PL,2025-12-06,2025-12-06,1,Pending,Medical appointment
+6eb48167-51a7-4831-a9c3-2346fb5bf056,UL,2025-12-11,2025-12-12,2,Approved,Personal work
+6eb48167-51a7-4831-a9c3-2346fb5bf056,CL,2025-10-12,2025-10-13,2,Rejected,Travel
+6eb48167-51a7-4831-a9c3-2346fb5bf056,SL,2026-03-19,2026-03-23,5,Pending,Family function
+6eb48167-51a7-4831-a9c3-2346fb5bf056,UL,2025-10-09,2025-10-13,5,Rejected,Personal work
+6eb48167-51a7-4831-a9c3-2346fb5bf056,CL,2026-01-31,2026-02-04,5,Rejected,Medical appointment
+6eb48167-51a7-4831-a9c3-2346fb5bf056,UL,2025-12-01,2025-12-02,2,Pending,Not feeling well
+04e8cfeb-d667-4629-9a9b-d910e8b0ec2b,PL,2026-01-21,2026-01-25,5,Pending,Personal work
+4631363c-0128-41c5-b4d0-be72708b6194,SL,2026-02-25,2026-02-25,1,Pending,Travel
+4631363c-0128-41c5-b4d0-be72708b6194,UL,2026-02-01,2026-02-01,1,Rejected,Not feeling well
+4631363c-0128-41c5-b4d0-be72708b6194,PL,2025-12-30,2025-12-30,1,Approved,Not feeling well
+4631363c-0128-41c5-b4d0-be72708b6194,UL,2026-01-08,2026-01-12,5,Approved,Travel
+4631363c-0128-41c5-b4d0-be72708b6194,CL,2025-10-08,2025-10-08,1,Approved,Not feeling well
+4631363c-0128-41c5-b4d0-be72708b6194,CL,2026-03-03,2026-03-07,5,Pending,Travel
+4d0581d0-c08b-49ad-ade9-d9adf91415f9,CL,2025-10-09,2025-10-12,4,Rejected,Medical appointment
+4d0581d0-c08b-49ad-ade9-d9adf91415f9,CL,2025-10-10,2025-10-12,3,Pending,Travel
+4d0581d0-c08b-49ad-ade9-d9adf91415f9,UL,2026-03-28,2026-03-30,3,Rejected,Travel
+ad22b163-e291-4fb1-9be2-7c4fbf47441e,PL,2026-03-20,2026-03-20,1,Rejected,Family function
+1714fafb-6859-45e3-93d1-9c11fdc9f207,SL,2025-12-24,2025-12-28,5,Approved,Personal work
+1714fafb-6859-45e3-93d1-9c11fdc9f207,CL,2026-03-30,2026-03-31,2,Rejected,Not feeling well
+1714fafb-6859-45e3-93d1-9c11fdc9f207,UL,2025-10-17,2025-10-18,2,Rejected,Medical appointment
+1714fafb-6859-45e3-93d1-9c11fdc9f207,PL,2025-12-31,2026-01-04,5,Pending,Personal work
+3fff71bf-6fbd-40a0-9cf2-3141aee75b8f,UL,2026-02-17,2026-02-21,5,Approved,Medical appointment
+3fff71bf-6fbd-40a0-9cf2-3141aee75b8f,SL,2026-03-26,2026-03-27,2,Approved,Family function
+3fff71bf-6fbd-40a0-9cf2-3141aee75b8f,CL,2026-03-02,2026-03-05,4,Pending,Personal work
+3fff71bf-6fbd-40a0-9cf2-3141aee75b8f,CL,2025-11-26,2025-11-26,1,Rejected,Family function
+3fff71bf-6fbd-40a0-9cf2-3141aee75b8f,CL,2025-11-07,2025-11-11,5,Pending,Not feeling well
+3fff71bf-6fbd-40a0-9cf2-3141aee75b8f,UL,2026-01-14,2026-01-15,2,Approved,Not feeling well
+896b3a13-9edd-4b91-af85-31a8c6888b62,UL,2025-12-05,2025-12-08,4,Approved,Personal work
+896b3a13-9edd-4b91-af85-31a8c6888b62,CL,2026-02-20,2026-02-23,4,Approved,Not feeling well
+896b3a13-9edd-4b91-af85-31a8c6888b62,CL,2025-11-26,2025-11-27,2,Pending,Medical appointment
+896b3a13-9edd-4b91-af85-31a8c6888b62,SL,2026-03-18,2026-03-22,5,Approved,Travel
+896b3a13-9edd-4b91-af85-31a8c6888b62,SL,2025-10-27,2025-10-29,3,Pending,Travel
+896b3a13-9edd-4b91-af85-31a8c6888b62,CL,2026-03-21,2026-03-24,4,Pending,Travel
+c29131fe-914e-46b8-a2d8-2766c38f4b22,UL,2026-02-15,2026-02-17,3,Pending,Medical appointment
+b341391a-bca1-4b4c-b488-02497efbd3d3,UL,2026-03-04,2026-03-07,4,Rejected,Not feeling well
+b341391a-bca1-4b4c-b488-02497efbd3d3,PL,2026-02-03,2026-02-07,5,Pending,Personal work
+bdb90151-cea4-4d0f-81ab-f3104aa0b27b,UL,2025-11-03,2025-11-03,1,Approved,Medical appointment
+bdb90151-cea4-4d0f-81ab-f3104aa0b27b,CL,2026-03-15,2026-03-16,2,Pending,Family function
+bdb90151-cea4-4d0f-81ab-f3104aa0b27b,UL,2025-12-26,2025-12-28,3,Rejected,Family function
+bdb90151-cea4-4d0f-81ab-f3104aa0b27b,PL,2026-01-18,2026-01-22,5,Pending,Travel
+954bb660-246e-49a1-8a93-57f72eb3b48b,SL,2025-12-02,2025-12-05,4,Pending,Family function
+954bb660-246e-49a1-8a93-57f72eb3b48b,PL,2026-03-13,2026-03-16,4,Rejected,Medical appointment
+954bb660-246e-49a1-8a93-57f72eb3b48b,PL,2025-10-30,2025-10-30,1,Rejected,Family function
+954bb660-246e-49a1-8a93-57f72eb3b48b,SL,2026-01-26,2026-01-28,3,Pending,Family function
+954bb660-246e-49a1-8a93-57f72eb3b48b,SL,2026-02-03,2026-02-07,5,Pending,Family function
+9688f619-9beb-4015-b100-27f1936a9e05,UL,2026-01-10,2026-01-14,5,Pending,Family function
+9688f619-9beb-4015-b100-27f1936a9e05,SL,2025-11-03,2025-11-06,4,Rejected,Not feeling well
+ec6058d0-e472-4c21-a859-2b8792aa165a,PL,2026-01-20,2026-01-21,2,Rejected,Medical appointment
+ec6058d0-e472-4c21-a859-2b8792aa165a,SL,2025-11-15,2025-11-17,3,Pending,Medical appointment
+ec6058d0-e472-4c21-a859-2b8792aa165a,CL,2025-11-23,2025-11-24,2,Rejected,Family function
+ec6058d0-e472-4c21-a859-2b8792aa165a,SL,2025-10-24,2025-10-25,2,Rejected,Family function
+ec6058d0-e472-4c21-a859-2b8792aa165a,PL,2026-02-18,2026-02-21,4,Approved,Travel
+ec6058d0-e472-4c21-a859-2b8792aa165a,UL,2025-12-03,2025-12-05,3,Rejected,Family function
+5b7b0ef9-55bc-439e-bc4e-e69be83bdd3e,CL,2026-01-30,2026-02-03,5,Pending,Personal work
+5b7b0ef9-55bc-439e-bc4e-e69be83bdd3e,UL,2025-12-30,2026-01-03,5,Approved,Personal work
+b2f7983f-0cce-42ba-8082-b934b99553a6,UL,2026-01-30,2026-02-02,4,Rejected,Medical appointment
+b2f7983f-0cce-42ba-8082-b934b99553a6,UL,2026-01-25,2026-01-29,5,Approved,Family function
+ef5a7e98-c494-49fe-96ed-0839e1af318b,CL,2025-12-17,2025-12-20,4,Pending,Travel
+6b0c314f-d173-494a-8db5-a473f8bfcd3d,SL,2026-01-15,2026-01-15,1,Approved,Personal work
+6b0c314f-d173-494a-8db5-a473f8bfcd3d,CL,2026-01-03,2026-01-03,1,Approved,Family function
+6b0c314f-d173-494a-8db5-a473f8bfcd3d,PL,2026-03-09,2026-03-13,5,Approved,Personal work
+6b0c314f-d173-494a-8db5-a473f8bfcd3d,SL,2025-10-12,2025-10-15,4,Approved,Medical appointment
+c29c9af0-4724-4390-94fe-c159d4835b40,PL,2026-04-03,2026-04-03,1,Rejected,Family function

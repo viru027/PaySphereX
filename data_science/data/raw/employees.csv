@@ -1,0 +1,51 @@
+id,employee_code,first_name,last_name,email,phone,department,job_title,hire_date,status,base_salary,hra,ta,da,role,gender,date_of_birth
+cbd064df-765b-43b1-a6de-47fffd90277e,EMP0001,Aarav,Verma,aarav.verma1@paysphere.com,+91-9134126396,HR,HR Executive,2019-04-05,Active,66868,13373,6686,3343,admin,Male,1987-10-14
+dc25aa84-d58e-4e57-9a98-885120ccf60e,EMP0002,Neha,Agarwal,neha.agarwal2@paysphere.com,+91-9732719211,Marketing,Digital Marketer,2022-01-18,Active,92124,18424,9212,4606,employee,Male,1998-04-15
+397f1799-4620-4a1f-a3e1-1fa6e223e42e,EMP0003,Sneha,Reddy,sneha.reddy3@paysphere.com,+91-9203848421,Finance,CFO,2020-03-07,Active,128236,25647,12823,6411,employee,Female,1988-02-13
+71b688b3-185a-46a9-a56b-4dad8ff836f6,EMP0004,Priya,Malhotra,priya.malhotra4@paysphere.com,+91-9488302652,Operations,Operations Analyst,2022-02-13,Active,60656,12131,6065,3032,employee,Male,1994-11-20
+0b70bf5d-3262-4fff-afec-7f60d23122ae,EMP0005,Neha,Gupta,neha.gupta5@paysphere.com,+91-9782560971,Engineering,Tech Lead,2018-04-28,Active,66476,13295,6647,3323,employee,Male,1997-05-15
+f8ce00f7-1af4-4f2d-9995-88c404ac5b86,EMP0006,Divya,Nair,divya.nair6@paysphere.com,+91-9362863730,Sales,Sales Manager,2023-05-23,Active,58717,11743,5871,2935,employee,Female,1990-09-24
+9edfa270-536e-4023-9334-20448974da28,EMP0007,Amit,Bose,amit.bose7@paysphere.com,+91-9438715135,Product,Business Analyst,2019-11-11,Active,54663,10932,5466,2733,employee,Female,1992-01-26
+2354a2a8-adaa-4934-8562-a9bc6efd78f5,EMP0008,Rohan,Sinha,rohan.sinha8@paysphere.com,+91-9253407200,HR,Recruiter,2023-06-07,Active,170870,34174,17087,8543,employee,Male,1997-11-15
+277c144a-c05b-472c-a972-6354d3a4c033,EMP0009,Meera,Bose,meera.bose9@paysphere.com,+91-9248532577,Marketing,Content Writer,2020-12-19,Active,152311,30462,15231,7615,employee,Male,1997-06-08
+2728d707-1d77-415f-b799-d069411a1843,EMP0010,Sunita,Mehta,sunita.mehta10@paysphere.com,+91-9739830322,Engineering,DevOps Engineer,2023-03-26,Active,150666,30133,15066,7533,employee,Female,1987-07-13
+53a78173-01ee-4e81-be5c-46980c360673,EMP0011,Sunita,Bose,sunita.bose11@paysphere.com,+91-9587182120,Engineering,Software Engineer,2020-11-11,Active,69242,13848,6924,3462,employee,Female,1994-07-06
+c948cbd6-930f-4727-940c-b12a5aef6fee,EMP0012,Rajesh,Kumar,rajesh.kumar12@paysphere.com,+91-9918739736,Finance,Accountant,2023-05-27,Active,173080,34616,17308,8654,employee,Male,1991-03-12
+1b05b5b2-3323-4dcb-92cf-6ea40b84eb54,EMP0013,Pooja,Sharma,pooja.sharma13@paysphere.com,+91-9709194872,Sales,Sales Executive,2018-06-27,Active,120612,24122,12061,6030,employee,Male,1992-01-08
+77861da6-254b-43ec-a49e-ea53693fb1c2,EMP0014,Vikram,Bose,vikram.bose14@paysphere.com,+91-9751325257,Legal,Paralegal,2019-03-22,Active,164592,32918,16459,8229,employee,Male,1990-05-17
+a665462b-3c92-4098-8a79-33e7fe414a51,EMP0015,Kavya,Desai,kavya.desai15@paysphere.com,+91-9341266931,Marketing,Marketing Executive,2023-11-12,Active,154845,30969,15484,7742,employee,Female,1999-02-08
+a6f9d9e9-8fd4-4bad-8740-1b066e451957,EMP0016,Aditya,Bose,aditya.bose16@paysphere.com,+91-9163215224,Engineering,Senior Engineer,2019-10-08,Active,41885,8377,4188,2094,employee,Male,1987-12-21
+04c8a190-0ce3-455a-b9fd-3298dec57bd5,EMP0017,Siddharth,Singh,siddharth.singh17@paysphere.com,+91-9876693898,Engineering,DevOps Engineer,2022-04-09,Active,167248,33449,16724,8362,employee,Male,1991-09-05
+8b11014b-91a9-4371-ae43-92f38ae5f767,EMP0018,Sneha,Nair,sneha.nair18@paysphere.com,+91-9601463916,Legal,Legal Counsel,2018-02-22,Active,152997,30599,15299,7649,employee,Male,1996-07-14
+6c5fb0aa-f69c-4ee2-91cb-529c41adc77a,EMP0019,Karan,Reddy,karan.reddy19@paysphere.com,+91-9297018781,Engineering,Tech Lead,2018-04-07,Active,89862,17972,8986,4493,employee,Female,1999-03-14
+bafc4c2a-b61d-46f0-9292-54efe4b89a5c,EMP0020,Vikram,Malhotra,vikram.malhotra20@paysphere.com,+91-9536383774,Marketing,Content Writer,2022-02-02,Active,43868,8773,4386,2193,employee,Female,1987-04-06
+653b819c-5b3c-4f12-aa14-2bf623e99fa2,EMP0021,Karan,Patel,karan.patel21@paysphere.com,+91-9554200826,Marketing,Content Writer,2019-07-01,Active,142346,28469,14234,7117,employee,Male,1993-08-10
+ce755464-5cef-423b-b889-eb23a2106ebe,EMP0022,Kavya,Nair,kavya.nair22@paysphere.com,+91-9727255918,Marketing,Content Writer,2018-10-24,Active,55979,11195,5597,2798,employee,Male,1995-01-02
+0f328eb3-3b06-411a-94fc-25a05916a39d,EMP0023,Rajesh,Singh,rajesh.singh23@paysphere.com,+91-9711684318,Engineering,Senior Engineer,2019-02-20,Active,57815,11563,5781,2890,employee,Male,1992-07-04
+edf1d6ba-b7b0-48e8-8ba9-02a624030c8f,EMP0024,Sneha,Sinha,sneha.sinha24@paysphere.com,+91-9437352358,HR,HR Manager,2022-09-11,Active,108358,21671,10835,5417,employee,Female,1991-11-23
+c2356b8b-2103-4f0f-9e5b-b4d161555601,EMP0025,Rahul,Gupta,rahul.gupta25@paysphere.com,+91-9704509817,Product,Product Manager,2021-06-25,Active,59016,11803,5901,2950,employee,Male,1985-08-20
+c7b3609a-4066-45d5-bc3b-8a5cf4359425,EMP0026,Rajesh,Verma,rajesh.verma26@paysphere.com,+91-9570497096,Marketing,Digital Marketer,2019-06-03,Active,104037,20807,10403,5201,employee,Male,1996-05-06
+d213c66e-0011-4bd6-9a68-d291a76f24f0,EMP0027,Sunita,Mehta,sunita.mehta27@paysphere.com,+91-9326161867,Operations,Process Engineer,2020-02-04,Active,80749,16149,8074,4037,employee,Male,1993-05-20
+583de298-1cca-462a-bb0f-016fd44f539c,EMP0028,Rajesh,Chopra,rajesh.chopra28@paysphere.com,+91-9458153605,Operations,Operations Analyst,2020-01-03,Active,151037,30207,15103,7551,employee,Female,1993-01-01
+c276e073-32c8-47f4-9748-042be71559ad,EMP0029,Arjun,Bose,arjun.bose29@paysphere.com,+91-9260045822,Finance,Financial Analyst,2023-07-18,Active,42534,8506,4253,2126,employee,Female,1988-02-23
+65da7385-925b-473d-9d5c-4aae3c7f667d,EMP0030,Sneha,Mehta,sneha.mehta30@paysphere.com,+91-9367930513,Finance,Financial Analyst,2018-05-12,Active,50458,10091,5045,2522,employee,Female,1996-04-22
+8e28949a-0771-4ee6-b5ae-428861b41075,EMP0031,Shruti,Mehta,shruti.mehta31@paysphere.com,+91-9890880074,Product,UX Designer,2019-03-26,Active,86413,17282,8641,4320,employee,Female,1998-01-06
+6eb48167-51a7-4831-a9c3-2346fb5bf056,EMP0032,Amit,Joshi,amit.joshi32@paysphere.com,+91-9976803188,Marketing,Content Writer,2023-02-13,Active,50151,10030,5015,2507,employee,Female,2000-04-07
+04e8cfeb-d667-4629-9a9b-d910e8b0ec2b,EMP0033,Neha,Iyer,neha.iyer33@paysphere.com,+91-9174539964,Operations,Process Engineer,2018-11-07,Active,144455,28891,14445,7222,employee,Female,1995-05-28
+4631363c-0128-41c5-b4d0-be72708b6194,EMP0034,Meera,Reddy,meera.reddy34@paysphere.com,+91-9740563507,Product,Business Analyst,2018-02-09,Active,86810,17362,8681,4340,employee,Female,1993-01-04
+4d0581d0-c08b-49ad-ade9-d9adf91415f9,EMP0035,Sneha,Mishra,sneha.mishra35@paysphere.com,+91-9568213197,Sales,Sales Executive,2022-02-13,Active,89828,17965,8982,4491,employee,Male,1993-01-23
+ad22b163-e291-4fb1-9be2-7c4fbf47441e,EMP0036,Sneha,Singh,sneha.singh36@paysphere.com,+91-9644518647,Sales,Business Developer,2023-06-20,Active,122291,24458,12229,6114,employee,Female,1988-12-10
+1714fafb-6859-45e3-93d1-9c11fdc9f207,EMP0037,Karan,Gupta,karan.gupta37@paysphere.com,+91-9286860433,Sales,Business Developer,2022-03-07,Active,150217,30043,15021,7510,employee,Female,1997-11-24
+3fff71bf-6fbd-40a0-9cf2-3141aee75b8f,EMP0038,Kavya,Gupta,kavya.gupta38@paysphere.com,+91-9825449223,Engineering,Senior Engineer,2019-07-26,Active,124475,24895,12447,6223,employee,Female,1999-08-15
+896b3a13-9edd-4b91-af85-31a8c6888b62,EMP0039,Vikram,Gupta,vikram.gupta39@paysphere.com,+91-9433310361,Finance,Accountant,2022-11-21,Active,127867,25573,12786,6393,employee,Male,1987-04-22
+c29131fe-914e-46b8-a2d8-2766c38f4b22,EMP0040,Aarav,Patel,aarav.patel40@paysphere.com,+91-9718121922,Finance,Accountant,2019-08-20,Active,59091,11818,5909,2954,employee,Female,1999-07-21
+b341391a-bca1-4b4c-b488-02497efbd3d3,EMP0041,Karan,Iyer,karan.iyer41@paysphere.com,+91-9288856883,Legal,Paralegal,2019-11-23,Active,41453,8290,4145,2072,employee,Male,1988-07-08
+bdb90151-cea4-4d0f-81ab-f3104aa0b27b,EMP0042,Sunita,Malhotra,sunita.malhotra42@paysphere.com,+91-9975106572,Marketing,Content Writer,2019-08-22,Active,179233,35846,17923,8961,employee,Female,1995-08-20
+954bb660-246e-49a1-8a93-57f72eb3b48b,EMP0043,Pooja,Malhotra,pooja.malhotra43@paysphere.com,+91-9394846763,Finance,Finance Manager,2020-04-27,Active,112695,22539,11269,5634,employee,Male,2000-11-08
+9688f619-9beb-4015-b100-27f1936a9e05,EMP0044,Neha,Verma,neha.verma44@paysphere.com,+91-9511281012,Operations,Operations Analyst,2020-06-18,Active,61122,12224,6112,3056,employee,Male,1989-03-08
+ec6058d0-e472-4c21-a859-2b8792aa165a,EMP0045,Sneha,Shah,sneha.shah45@paysphere.com,+91-9551125671,HR,HR Business Partner,2020-09-15,Active,148992,29798,14899,7449,employee,Male,1986-04-27
+5b7b0ef9-55bc-439e-bc4e-e69be83bdd3e,EMP0046,Pooja,Sharma,pooja.sharma46@paysphere.com,+91-9888807316,Product,Product Analyst,2020-05-25,Active,142232,28446,14223,7111,employee,Female,1998-09-24
+b2f7983f-0cce-42ba-8082-b934b99553a6,EMP0047,Amit,Shah,amit.shah47@paysphere.com,+91-9601856351,Marketing,Brand Manager,2021-01-13,Active,128114,25622,12811,6405,employee,Male,1997-12-06
+ef5a7e98-c494-49fe-96ed-0839e1af318b,EMP0048,Aditya,Sinha,aditya.sinha48@paysphere.com,+91-9153992714,Product,UX Designer,2023-01-03,Active,152358,30471,15235,7617,employee,Female,1989-08-06
+6b0c314f-d173-494a-8db5-a473f8bfcd3d,EMP0049,Rohan,Malhotra,rohan.malhotra49@paysphere.com,+91-9996478772,Sales,Sales Executive,2020-06-25,Active,139385,27877,13938,6969,employee,Female,1993-07-09
+c29c9af0-4724-4390-94fe-c159d4835b40,EMP0050,Meera,Patel,meera.patel50@paysphere.com,+91-9314061901,Engineering,Software Engineer,2020-04-21,Active,57987,11597,5798,2899,employee,Male,1986-01-08
