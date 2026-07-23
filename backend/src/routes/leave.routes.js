@@ -10,9 +10,11 @@ router.post  ("/apply",                       protect, ctrl.applyLeave);
 router.patch ("/:id/review",                  protect, authorize("admin","hr","manager"), ctrl.reviewLeave);
 router.patch ("/:id/cancel",                  protect, ctrl.cancelLeave);
 router.get   ("/",                            protect, ctrl.getLeaveRequests);
+router.get("/requests", protect, ctrl.getMyRequests);
 router.get   ("/types",                       protect, ctrl.getLeaveTypes);
 router.get   ("/summary",                     protect, ctrl.getLeaveSummary);
 router.get   ("/balance",                     protect, ctrl.getLeaveBalance);
+router.get("/my-balance", protect, ctrl.getMyBalance);
 router.get   ("/balance/:employeeId",         protect, ctrl.getLeaveBalance);
 
 module.exports = router;

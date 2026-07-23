@@ -1,32 +1,26 @@
 /**
- * PaySphereX — Leave Controller
- * ===============================
- * applyLeave, reviewLeave, getLeaveRequests,
- * getLeaveBalance, getLeaveTypes, cancelLeave
+ * PaySphereX — Leave Controller (FIXED)
+ * Auto-creates 2026 balance if missing so existing employees can always apply.
  */
 
 const db     = require("../db/pool");
-const logger = require("../utils/logger");
 const { AppError } = require("../utils/AppError");
 
-// ── APPLY LEAVE ────────────────────────────────────────
+// ── APPLY LEAVE ────────────────────────────────────────────
 exports.applyLeave = async (req, res, next) => {
   const client = await db.getClient();
   try {
     await client.query("BEGIN");
 
     const {
-      leave_type_id,
-      start_date,
-      end_date,
-      half_day = false,
-      half_day_period,
-      reason,
+      leave_type_id, start_date, end_date,
+      half_day = false, half_day_period, reason,
     } = req.body;
 
     const employeeId = req.user.id;
+    const year       = new Date(start_date).getFullYear();
 
-    // Calculate working days between dates (exclude weekends + holidays)
+    // Calculate working days (exclude weekends + public holidays)
     const { rows: [dayCount] } = await client.query(
       `SELECT COUNT(*) AS total_days
        FROM generate_series($1::date, $2::date, '1 day') AS d(dt)
@@ -36,11 +30,23 @@ exports.applyLeave = async (req, res, next) => {
     );
 
     let totalDays = half_day ? 0.5 : parseFloat(dayCount.total_days);
-
     if (totalDays <= 0) throw new AppError("No working days in selected range", 400);
 
-    // Check leave balance
-    const year = new Date(start_date).getFullYear();
+    // Get leave type info
+    const { rows: [leaveType] } = await client.query(
+      "SELECT * FROM leave_types WHERE id = $1", [leave_type_id]
+    );
+    if (!leaveType) throw new AppError("Invalid leave type", 400);
+
+    // ── AUTO-CREATE balance if missing for this year ──────────
+    await client.query(
+      `INSERT INTO leave_balances (employee_id, leave_type_id, year, allotted, used, carried_forward)
+       VALUES ($1, $2, $3, $4, 0, 0)
+       ON CONFLICT (employee_id, leave_type_id, year) DO NOTHING`,
+      [employeeId, leave_type_id, year, leaveType.annual_quota]
+    );
+
+    // Now fetch the balance
     const { rows: [balance] } = await client.query(
       `SELECT lb.*, lt.name AS leave_type_name, lt.is_paid
        FROM leave_balances lb
@@ -49,8 +55,10 @@ exports.applyLeave = async (req, res, next) => {
       [employeeId, leave_type_id, year]
     );
 
-    if (!balance) throw new AppError("Leave balance not found for this year", 400);
-    if (balance.balance < totalDays) {
+    if (!balance) throw new AppError("Could not create leave balance record", 500);
+
+    // Check balance (skip check for LWP)
+    if (leaveType.code !== "LWP" && balance.balance < totalDays) {
       throw new AppError(
         `Insufficient ${balance.leave_type_name} balance. Available: ${balance.balance} days`,
         400
@@ -67,7 +75,7 @@ exports.applyLeave = async (req, res, next) => {
     );
     if (overlap.length) throw new AppError("Overlapping leave request already exists", 409);
 
-    // Create request
+    // Create leave request
     const { rows: [leave] } = await client.query(
       `INSERT INTO leave_requests
          (employee_id, leave_type_id, start_date, end_date, total_days,
@@ -75,7 +83,7 @@ exports.applyLeave = async (req, res, next) => {
        VALUES ($1,$2,$3,$4,$5,$6,$7,$8,'pending')
        RETURNING *`,
       [employeeId, leave_type_id, start_date, end_date, totalDays,
-       half_day, half_day_period, reason]
+       half_day, half_day_period || null, reason]
     );
 
     await client.query("COMMIT");
@@ -83,7 +91,7 @@ exports.applyLeave = async (req, res, next) => {
     return res.status(201).json({
       success: true,
       message: "Leave application submitted successfully",
-      data: { ...leave, total_days: totalDays },
+      data:    { ...leave, total_days: totalDays },
     });
   } catch (err) {
     await client.query("ROLLBACK");
@@ -93,7 +101,7 @@ exports.applyLeave = async (req, res, next) => {
   }
 };
 
-// ── REVIEW LEAVE (approve / reject) ──────────────────
+// ── REVIEW LEAVE (approve / reject) ──────────────────────
 exports.reviewLeave = async (req, res, next) => {
   const client = await db.getClient();
   try {
@@ -107,8 +115,7 @@ exports.reviewLeave = async (req, res, next) => {
     }
 
     const { rows: [leave] } = await client.query(
-      "SELECT * FROM leave_requests WHERE id = $1",
-      [id]
+      "SELECT * FROM leave_requests WHERE id = $1", [id]
     );
     if (!leave) throw new AppError("Leave request not found", 404);
     if (leave.status !== "pending") {
@@ -118,24 +125,35 @@ exports.reviewLeave = async (req, res, next) => {
     // Update leave request
     const { rows: [updated] } = await client.query(
       `UPDATE leave_requests
-       SET status = $1, reviewed_by = $2, reviewed_at = NOW(), review_comment = $3, updated_at = NOW()
-       WHERE id = $4
-       RETURNING *`,
+       SET status = $1, reviewed_by = $2, reviewed_at = NOW(),
+           review_comment = $3, updated_at = NOW()
+       WHERE id = $4 RETURNING *`,
       [status, req.user.id, review_comment, id]
     );
 
     // If approved → deduct from balance
     if (status === "approved") {
       const year = new Date(leave.start_date).getFullYear();
-      const { rowCount } = await client.query(
+
+      // Auto-create balance if missing
+      const { rows: [lt] } = await client.query(
+        "SELECT * FROM leave_types WHERE id = $1", [leave.leave_type_id]
+      );
+      await client.query(
+        `INSERT INTO leave_balances (employee_id, leave_type_id, year, allotted, used, carried_forward)
+         VALUES ($1, $2, $3, $4, 0, 0)
+         ON CONFLICT (employee_id, leave_type_id, year) DO NOTHING`,
+        [leave.employee_id, leave.leave_type_id, year, lt?.annual_quota || 0]
+      );
+
+      await client.query(
         `UPDATE leave_balances
          SET used = used + $1, updated_at = NOW()
          WHERE employee_id = $2 AND leave_type_id = $3 AND year = $4`,
         [leave.total_days, leave.employee_id, leave.leave_type_id, year]
       );
-      if (!rowCount) throw new AppError("Failed to update leave balance", 500);
 
-      // Mark attendance as on_leave for each approved day
+      // Mark attendance as on_leave
       await client.query(
         `INSERT INTO attendance (employee_id, date, status)
          SELECT $1, dt, 'on_leave'
@@ -161,17 +179,16 @@ exports.reviewLeave = async (req, res, next) => {
   }
 };
 
-// ── GET LEAVE REQUESTS ─────────────────────────────────
+// ── GET LEAVE REQUESTS ─────────────────────────────────────
 exports.getLeaveRequests = async (req, res, next) => {
   try {
-    const { status, employee_id, leave_type_id, start_date, end_date, page = 1, limit = 20 } = req.query;
+    const { status, employee_id, leave_type_id, start_date, end_date, page = 1, limit = 50 } = req.query;
     const offset = (page - 1) * limit;
 
     let where  = ["1=1"];
     let params = [];
     let pIdx   = 1;
 
-    // Role-based filtering
     if (req.user.role === "employee") {
       where.push(`lr.employee_id = $${pIdx++}`);
       params.push(req.user.id);
@@ -180,10 +197,10 @@ exports.getLeaveRequests = async (req, res, next) => {
       params.push(employee_id);
     }
 
-    if (status)        { where.push(`lr.status = $${pIdx++}`);          params.push(status); }
-    if (leave_type_id) { where.push(`lr.leave_type_id = $${pIdx++}`);   params.push(leave_type_id); }
-    if (start_date)    { where.push(`lr.start_date >= $${pIdx++}`);     params.push(start_date); }
-    if (end_date)      { where.push(`lr.end_date   <= $${pIdx++}`);     params.push(end_date); }
+    if (status)        { where.push(`lr.status = $${pIdx++}`);         params.push(status); }
+    if (leave_type_id) { where.push(`lr.leave_type_id = $${pIdx++}`);  params.push(leave_type_id); }
+    if (start_date)    { where.push(`lr.start_date >= $${pIdx++}`);    params.push(start_date); }
+    if (end_date)      { where.push(`lr.end_date <= $${pIdx++}`);      params.push(end_date); }
 
     const whereClause = where.join(" AND ");
 
@@ -195,12 +212,12 @@ exports.getLeaveRequests = async (req, res, next) => {
               lt.name       AS leave_type_name,
               lt.code       AS leave_code,
               lt.color_code,
-              r.first_name  || ' ' || r.last_name AS reviewed_by_name
+              rv.first_name || ' ' || rv.last_name AS reviewed_by_name
        FROM leave_requests lr
        JOIN employees    e  ON lr.employee_id   = e.id
        JOIN leave_types  lt ON lr.leave_type_id = lt.id
-       LEFT JOIN departments d ON e.department_id  = d.id
-       LEFT JOIN employees   r ON lr.reviewed_by   = r.id
+       LEFT JOIN departments d  ON e.department_id  = d.id
+       LEFT JOIN employees   rv ON lr.reviewed_by   = rv.id
        WHERE ${whereClause}
        ORDER BY lr.applied_on DESC
        LIMIT $${pIdx} OFFSET $${pIdx + 1}`,
@@ -208,8 +225,7 @@ exports.getLeaveRequests = async (req, res, next) => {
     );
 
     const { rows: [{ count }] } = await db.query(
-      `SELECT COUNT(*) FROM leave_requests lr WHERE ${whereClause}`,
-      params
+      `SELECT COUNT(*) FROM leave_requests lr WHERE ${whereClause}`, params
     );
 
     return res.json({
@@ -222,7 +238,7 @@ exports.getLeaveRequests = async (req, res, next) => {
   }
 };
 
-// ── GET LEAVE BALANCE ──────────────────────────────────
+// ── GET LEAVE BALANCE ──────────────────────────────────────
 exports.getLeaveBalance = async (req, res, next) => {
   try {
     const empId = req.params.employeeId || req.user.id;
@@ -230,6 +246,19 @@ exports.getLeaveBalance = async (req, res, next) => {
 
     if (req.user.role === "employee" && empId !== req.user.id) {
       throw new AppError("Access denied", 403);
+    }
+
+    // Auto-create balances for current year if missing
+    const { rows: leaveTypes } = await db.query(
+      "SELECT * FROM leave_types WHERE annual_quota > 0"
+    );
+    for (const lt of leaveTypes) {
+      await db.query(
+        `INSERT INTO leave_balances (employee_id, leave_type_id, year, allotted, used, carried_forward)
+         VALUES ($1, $2, $3, $4, 0, 0)
+         ON CONFLICT (employee_id, leave_type_id, year) DO NOTHING`,
+        [empId, lt.id, year, lt.annual_quota]
+      );
     }
 
     const { rows } = await db.query(
@@ -248,7 +277,7 @@ exports.getLeaveBalance = async (req, res, next) => {
   }
 };
 
-// ── GET LEAVE TYPES ────────────────────────────────────
+// ── GET LEAVE TYPES ────────────────────────────────────────
 exports.getLeaveTypes = async (req, res, next) => {
   try {
     const { rows } = await db.query("SELECT * FROM leave_types ORDER BY id");
@@ -258,7 +287,7 @@ exports.getLeaveTypes = async (req, res, next) => {
   }
 };
 
-// ── CANCEL LEAVE ───────────────────────────────────────
+// ── CANCEL LEAVE ───────────────────────────────────────────
 exports.cancelLeave = async (req, res, next) => {
   const client = await db.getClient();
   try {
@@ -266,10 +295,10 @@ exports.cancelLeave = async (req, res, next) => {
     const { id } = req.params;
 
     const { rows: [leave] } = await client.query(
-      "SELECT * FROM leave_requests WHERE id = $1",
-      [id]
+      "SELECT * FROM leave_requests WHERE id = $1", [id]
     );
     if (!leave) throw new AppError("Leave request not found", 404);
+
     if (leave.employee_id !== req.user.id && !["admin","hr","manager"].includes(req.user.role)) {
       throw new AppError("Access denied", 403);
     }
@@ -281,15 +310,15 @@ exports.cancelLeave = async (req, res, next) => {
     }
 
     await client.query(
-      "UPDATE leave_requests SET status = 'cancelled', updated_at = NOW() WHERE id = $1",
-      [id]
+      "UPDATE leave_requests SET status = 'cancelled', updated_at = NOW() WHERE id = $1", [id]
     );
 
     // Restore balance if was approved
     if (leave.status === "approved") {
       const year = new Date(leave.start_date).getFullYear();
       await client.query(
-        `UPDATE leave_balances SET used = GREATEST(0, used - $1), updated_at = NOW()
+        `UPDATE leave_balances
+         SET used = GREATEST(0, used - $1), updated_at = NOW()
          WHERE employee_id = $2 AND leave_type_id = $3 AND year = $4`,
         [leave.total_days, leave.employee_id, leave.leave_type_id, year]
       );
@@ -305,7 +334,7 @@ exports.cancelLeave = async (req, res, next) => {
   }
 };
 
-// ── LEAVE SUMMARY (dashboard) ──────────────────────────
+// ── LEAVE SUMMARY (dashboard) ──────────────────────────────
 exports.getLeaveSummary = async (req, res, next) => {
   try {
     const { year = new Date().getFullYear(), department_id } = req.query;
@@ -329,6 +358,42 @@ exports.getLeaveSummary = async (req, res, next) => {
        GROUP BY lt.id, lt.name, lt.code, lt.color_code
        ORDER BY total_days_taken DESC`,
       params
+    );
+
+    return res.json({ success: true, data: rows });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// ── GET MY REQUESTS ─────────────────────────────
+exports.getMyRequests = async (req, res, next) => {
+  try {
+    const { rows } = await db.query(
+      `SELECT * FROM leave_requests
+       WHERE employee_id = $1
+       ORDER BY created_at DESC
+       LIMIT 10`,
+      [req.user.id]
+    );
+
+    return res.json({ success: true, data: rows });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// ── GET MY BALANCE ─────────────────────────────
+exports.getMyBalance = async (req, res, next) => {
+  try {
+    const year = req.query.year || new Date().getFullYear();
+
+    const { rows } = await db.query(
+      `SELECT lb.*, lt.name
+       FROM leave_balances lb
+       JOIN leave_types lt ON lt.id = lb.leave_type_id
+       WHERE lb.employee_id = $1 AND lb.year = $2`,
+      [req.user.id, year]
     );
 
     return res.json({ success: true, data: rows });
